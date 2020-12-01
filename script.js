@@ -1,27 +1,19 @@
-var section = document.querySelector('section')
-
-var p = document.createElement('p')
-p.innerHTML = 'i just created this element'
-section.append(p)
-
-var names = ['john', 'mary', 'tom', 'steve']
-var numbers = ['1', '2', '3']
-var ul = document.createElement('ul')
-document.body.appendChild(ul)
-
-names.forEach(function (name){
-   var li = document.createElement('li')
-   li.innerHTML =  name
-   ul.append(li)
+document.querySelectorAll('.slides img').forEach(function(slide){
+    slide.addEventListener('click', function(image){
+        // console.log(image.target.src)
+        var source = image.target.src
+        document.querySelector('.popup').style.visibility ='visible'
+        document.querySelector('.popup').style.opacity = 1
+        document.querySelector('.popup img').setAttribute('src', source)
+        // document.querySelector('.popup img').style.visibility = 'visible'
+        // document.querySelector('.popup img').style.opacity = 1
+        document.querySelector('.popup img').style.cssText = 'visibility: visible; opacity: 1; height: 480px; width: 640px; transform: rotate(360deg);'
+        document.querySelector('.close').style.display = 'block'
+    })
 })
 
-function add() {
-    var text = document.querySelector('[name="text"').value
-    // var ol = document.createElement('ol')
-    // document.body.appendChild(ol)
-    ol = document.querySelector ('ol')
-    var li = document.createElement('li')
-    li.innerHTML = text
-    ol.append(li)
-    document.querySelector('[name="text"').value =''
-}
+document.querySelector('.close').addEventListener('click', function(event){
+    document.querySelector('.popup').style.cssText='visibility:hidden; opacity:0; height: 0px; width: 0px; transform: rotate(360deg);'
+    document.querySelector('.popup img').style.cssText='visibility:hidden; opacity:0; height: 0px; width: 0px; transform: rotate(360deg);'
+    event.target.style.display = 'none'
+})
