@@ -13,7 +13,7 @@ document.querySelectorAll('.slides img').forEach(function(slide){
 })
 
 document.querySelector('.close').addEventListener('click', function(event){
-    document.querySelector('.popup').style.cssText='visibility:hidden; opacity:0; height: 0px; width: 0px; transform: rotate(360deg);'
-    document.querySelector('.popup img').style.cssText='visibility:hidden; opacity:0; height: 0px; width: 0px; transform: rotate(360deg);'
+    document.querySelector('.popup').style.cssText='visibility:hidden; opacity:0'
+    document.querySelector('.popup img').style.cssText='visibility:hidden; opacity:0; transform: rotate(-360deg);'
     event.target.style.display = 'none'
 })
